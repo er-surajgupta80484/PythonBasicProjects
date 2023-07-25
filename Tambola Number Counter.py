@@ -2,7 +2,8 @@
 
 import random
 numlist=[]
-print("Welcome to Tambola! Press enter to start the game and type quit & hit enter to quit\n\n")
+viewls=[]
+print("Welcome to Tambola! Press enter to start the game and type quit & hit enter to quit\nAt any point during game, if you want to view the numbers, Then TYPE view\n")
 choice=input("Press enter to start the game")
 loop_input=''
 loop_counter=0
@@ -16,11 +17,17 @@ if choice=='':
             if loop_input == '':
                 print(num)
                 numlist.append(num)
+                viewls.append(num)
                 loop_counter+=1
+            if str.lower(loop_input)=='view':
 
-            if loop_input=='quit' or loop_counter==90:
+                viewls.sort()
+                print(viewls)
+
+            if str.lower(loop_input)=='quit' or loop_counter==90:
                 break
-print(f"Game Over! All 90 numbers have been called out\n\nnumbers called are {numlist}")
+print(f"Game Over! All 90 numbers as they called out\n\nnumbers called are {numlist}")
+
 #below is the sample code to test if numbers are all unique by converting list to set and match the count of elements in set and list. because set contains unique values only.
 #count=0
 #myset=set()
